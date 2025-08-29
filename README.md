@@ -7,7 +7,7 @@ on startup. Once running, we are able to trigger a test webhook via http://local
 
 The server will output some logs which will show the resulting webhook call come in.
 
-### Requiments
+### Requirements
 
 - An ngrok authtoken
 - Sandbox partner API credentials
