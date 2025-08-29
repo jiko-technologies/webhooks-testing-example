@@ -27,13 +27,13 @@ The server will output some logs which will show the resulting webhook call come
 ```sh
 
 ❯ python main.py
-2025-08-29 10:08:02,785 - app - INFO - NGrok running on https://2f0e022ffcf8.ngrok-free.app
-2025-08-29 10:08:04,655 - app - INFO - Created subscription a609db91-87ed-4c54-aad7-e098ae34e16c
-2025-08-29 10:08:04,655 - app - INFO - ====================
-2025-08-29 10:08:04,655 - app - INFO - Ready! Browse to http://localhost:8888/trigger to trigger some webhooks!
-2025-08-29 10:08:04,655 - app - INFO - ====================
-2025-08-29 10:08:10,625 - app - INFO - Triggered webhook event 4bf2facc-b055-4530-bb63-3a5ba753a637!
-2025-08-29 10:08:14,066 - app - INFO - Webhook event 4bf2facc-b055-4530-bb63-3a5ba753a637 received! Received signature = heUhNunw6TvEKt+4nt/ARcwPFv7X5TCdzq1SCq9BOqQ=, expected signature = heUhNunw6TvEKt+4nt/ARcwPFv7X5TCdzq1SCq9BOqQ=
-2025-08-29 10:08:14,066 - app - INFO -   -> Signatures match! We can now do something with the payload!
+2025-08-29 10:20:16,345 - app - INFO - NGrok running on https://7bb109f54658.ngrok-free.app
+2025-08-29 10:20:18,209 - app - INFO - Created subscription 3bb0fe21-441e-4834-a780-d5e7eaef45c2
+2025-08-29 10:20:18,210 - app - INFO - ====================
+2025-08-29 10:20:18,210 - app - INFO - Ready! Browse to http://localhost:8888/trigger to trigger some webhooks!
+2025-08-29 10:20:18,210 - app - INFO - ====================
+2025-08-29 10:20:22,618 - app - INFO - Triggered webhook event 2283fb4b-64fe-42d4-acf6-24c0c0d0ceb6!
+2025-08-29 10:20:24,347 - app - INFO - Webhook event 2283fb4b-64fe-42d4-acf6-24c0c0d0ceb6 received!
+2025-08-29 10:20:24,347 - app - INFO -   -> Signatures match! We can now do something with the payload!
 
 ```

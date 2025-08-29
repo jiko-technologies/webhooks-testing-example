@@ -1,14 +1,11 @@
 from contextlib import asynccontextmanager
-import base64
-import hmac
-import hashlib
 import logging
 from typing import Annotated, Any
 from uuid import uuid4
 from fastapi import Body, FastAPI, Header, Request
 from fastapi.responses import HTMLResponse
 
-from partner_api import PartnerAPIClient
+from partner_api import PartnerAPIClient, sign
 import ngrok
 from config import EnvironmentVariables
 
@@ -57,17 +54,10 @@ async def handle_webhook(
     request: Request,
     payload: Annotated[dict[str, Any], Body()],
 ) -> None:
+    LOGGER.info(f"Webhook event {payload['event_id']} received!")
 
-    calculated_signature = base64.b64encode(
-        hmac.new(
-            env.subscription_shared_secret.encode(),
-            await request.body(),
-            hashlib.sha256,
-        ).digest()
-    ).decode()
-
-    LOGGER.info(
-        f"Webhook event {payload['event_id']} received! Received signature = {x_jiko_signature}, expected signature = {calculated_signature}"
+    calculated_signature = sign(
+        await request.body(), env.subscription_shared_secret.encode()
     )
 
     if calculated_signature == x_jiko_signature:
@@ -86,7 +76,7 @@ async def trigger_webhook(request: Request) -> HTMLResponse:
 
     return HTMLResponse(
         content=f"""
-    <html><head><style> * {{ font-family: sans-serif; }}</style></head>
+    <html><head><style> h1 {{ font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100%; }}</style></head>
     <body>
         <h1>Webhook event {event_id} triggered, please check the terminal again to see the resulting webhook call!</h1>
     </body>
