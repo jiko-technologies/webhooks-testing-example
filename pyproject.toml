@@ -1,0 +1,14 @@
+[project]
+name = "jiko-sandbox-subscription-example"
+version = "0.1.0"
+description = "Jiko webhooks testing example"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.116.1",
+    "httpx>=0.28.1",
+    "ngrok>=1.4.0",
+    "pydantic-settings>=2.10.1",
+    "pyyaml>=6.0.2",
+    "uvicorn>=0.35.0",
+]
