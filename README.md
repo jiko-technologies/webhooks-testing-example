@@ -11,7 +11,7 @@ The server will output some logs which will show the resulting webhook call come
 
 - An ngrok authtoken
 - Sandbox partner API credentials
-- > Python 3.12 and uv installed
+- Python >=3.12 and uv installed
 
 ### Setup
 
